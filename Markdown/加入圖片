@@ -1,3 +1,13 @@
 # 加入圖片
 
-![記事本的畫面](notebook.JPG)
+![notebook](/notebook.JPG)
+
+## 說明
+```
+開頭加一個 驚嘆號
+
+![圖片如果無法正常顯示時的替代文字](圖片地址)
+
+![notebook](/notebook.JPG)
+
+```
