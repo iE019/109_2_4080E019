@@ -4,7 +4,16 @@
 Python Flask Tutorial: Full-Featured Web App Part 4 - Database with Flask-SQLAlchemy  
 <https://www.youtube.com/watch?v=cYWiDiIUxQc&list=RDCMUCCezIgC97PvUuR4_gbFUs5g>
 
-## 安裝套件(和資料庫有關)
+## 之前要安裝的套件
+```
+pip install flask
+
+pip install flask-wtf
+
+pip install email_validator
+```
+
+## 新安裝的套件(和資料庫有關)
 ```
 pip install flask-sqlalchemy
 ```
@@ -18,7 +27,7 @@ from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '141f1bb188e7c1f5b94b81fe209d5e12'
-app.config['SQLALCHEMY_DATABASE_URL']='sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 
@@ -26,24 +35,23 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    image_file = db.Column(db.String(20, nullable=False, default='defaulr.jpg')
-    password = db.Column(db.Column(db.String(60), nullable=False))
+    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+    password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}','{self.image_file}')"
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100) nullable=False)
-    date_posted = db.Column(db.DataTime, nullable=False, default=datetime.utcnow())
+    title = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
-
 
 
 posts = [
@@ -94,6 +102,8 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 
+if __name__ == '__main__':
+    app.run(debug=True)
 
 ```
 
@@ -133,6 +143,25 @@ user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 ## 終端機的操作
 ```
+(myflask01) C:\Users\KSUIE>cd ..
+
+(myflask01) C:\Users>cd ..
+
+(myflask01) C:\>D:
+
+(myflask01) D:\>cd MyFlask2021
+
+(myflask01) D:\MyFlask2021>cd 4080E019
+
+(myflask01) D:\MyFlask2021\4080E019>cd flaskTest01
+
+(myflask01) D:\MyFlask2021\4080E019\flaskTest01>python
+Python 3.8.8 (default, Apr 13 2021, 15:08:03) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from app import db
+C:\Users\KSUIE\anaconda3_NEW\envs\myflask01\lib\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+>>> db.creat_all
 
 ```
 
