@@ -131,6 +131,11 @@ user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 # 一個貼文只能有1個作者
 ```
 
+## 終端機的操作
+```
+
+```
+
 ### 設定&執行
 ```
 1. 設定要執行的 flask 檔案
