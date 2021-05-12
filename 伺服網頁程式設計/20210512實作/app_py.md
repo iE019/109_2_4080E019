@@ -183,7 +183,15 @@ User('Corey', 'C@demo.com', 'default.jpg')
 >>> user = User.query.get(1)
 >>> user
 User('Corey', 'C@demo.com', 'default.jpg')
-
+>>> user.posts
+[]
+>>> db.drop_all()
+>>> db.create_all()
+>>> User.query.all()
+[]
+>>> Post.query.all()
+[]
+>>>
 ```
 
 ### 設定&執行
