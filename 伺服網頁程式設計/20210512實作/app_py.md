@@ -161,7 +161,16 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> from app import db
 C:\Users\KSUIE\anaconda3_NEW\envs\myflask01\lib\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
   warnings.warn(FSADeprecationWarning(
->>> db.creat_all
+>>> db.create_all()
+>>> user_1 = User(username='Corey', email='C@demo.com', password='psssword')
+>>> db.session.add(user_1)
+>>> user_2 = User(username='JohnDoe', email='jd@demo.com', password='psssword')
+>>> db.session.add(user_2)
+>>> db.session.commit()
+>>> User.query.all()
+[User('Corey', 'C@demo.com', 'default.jpg'), User('JohnDoe', 'jd@demo.com', 'default.jpg')]
+>>> User.query.first()
+User('Corey', 'C@demo.com', 'default.jpg')
 
 ```
 
