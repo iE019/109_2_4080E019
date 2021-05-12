@@ -171,6 +171,18 @@ C:\Users\KSUIE\anaconda3_NEW\envs\myflask01\lib\site-packages\flask_sqlalchemy\_
 [User('Corey', 'C@demo.com', 'default.jpg'), User('JohnDoe', 'jd@demo.com', 'default.jpg')]
 >>> User.query.first()
 User('Corey', 'C@demo.com', 'default.jpg')
+>>> User.query.filter_by(username='Corey').all()
+[User('Corey', 'C@demo.com', 'default.jpg')]
+>>> User.query.filter_by(username='Corey').first()
+User('Corey', 'C@demo.com', 'default.jpg')
+>>> user = User.query.filter_by(username='Corey').first()
+>>> user
+User('Corey', 'C@demo.com', 'default.jpg')
+>>> user.id
+1
+>>> user = User.query.get(1)
+>>> user
+User('Corey', 'C@demo.com', 'default.jpg')
 
 ```
 
