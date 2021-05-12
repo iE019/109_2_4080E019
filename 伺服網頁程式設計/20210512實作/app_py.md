@@ -20,11 +20,17 @@ app.config['SECRET_KEY'] = '141f1bb188e7c1f5b94b81fe209d5e12'
 app.config['SQLALCHEMY_DATABASE_URL']='sqlite:///site.db'
 db = SQLAlchemy(app)
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     username = db.Column(db.String(120), unique=True, nullable=False)
-    
+    image_file = db.Column(db.String(20, nullable=False, default='defaulr.jpg')
+    password = db.Column(db.Column(db.String(60), nullable=False))
+
+    def __repr__(self):
+        return f"User('{self.username}', '{self.username}','{self.username}')"
+
 
 
 posts = [
@@ -75,8 +81,31 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 
+
 ```
 
+## 說明:
+
+```
+db = SQLAlchemy(app)
+# 建立物件
+```
+
+```
+id = db.Column(db.Integer, primary_key=True)
+# 唯一性
+```
+
+```
+username = db.Column(db.String(20), unique=True, nullable=False)
+# 長度 20  
+```
+
+```
+nullable=False
+# 不能是空的
+
+```
 
 ### 設定&執行
 ```
