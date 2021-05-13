@@ -82,12 +82,15 @@ print(score_df)
 ```python
 import pandas as pd
  
- 
 bus_table = pd.read_html("https://www.ubus.com.tw/Booking/FareInquiry")
+# 統聯客運票價表
  
 bus_df = bus_table[0]
 bus_df.columns = ["路線名稱", "優惠時段", "原價時段", "半票票價", "軍優票價", "去回票價"]
 print(bus_df)
+# 以 DataFrame 的格式列印出爬取結果
+print(bus_df, file=open('data.txt','w'))
+# 將爬取結果寫入txt檔
 ```
 
 ## 實作3_執行結果
