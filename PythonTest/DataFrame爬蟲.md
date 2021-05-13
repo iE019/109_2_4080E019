@@ -1,3 +1,12 @@
+
+參考資料  
+[Pandas教學]掌握Pandas DataFrame讀取網頁表格的實作技巧  
+<https://www.learncodewithmike.com/2020/11/read-html-table-using-pandas.html>
+
+```
+Google Colab 內建已有 pandas, lxml 套件所以不用安裝
+```
+
 ## 實作1
 ```python
 import pandas as pd
