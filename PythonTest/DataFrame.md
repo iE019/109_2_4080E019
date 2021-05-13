@@ -31,15 +31,16 @@ print(men_number_df) # 看看資料框的外觀
 import pandas as pd
 
 groups = ["Modern Web", "DevOps", "Cloud", "Big Data", "Security"]
-ironmen = [46, 8, 12, 12, 6]
+men_number = [46, 8, 12, 12, 6]
 
-ironmen_dict = {"groups": groups,
-                "men": ironmen
+men_number_dict = {"groups": groups,
+         "men": men_number
 }
 
-ironmen_df = pd.DataFrame(ironmen_dict)
+men_number_df = pd.DataFrame(men_number_dict)
 
-print(ironmen_df[ironmen_df.loc[:,"men"] > 10]) # 選出人數超過 10 的 data frame
+print(men_number_df[men_number_df.loc[:,"men"] > 10]) 
+# 選出人數超過 10 的 data frame
 
 ```
 
