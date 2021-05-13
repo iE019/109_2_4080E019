@@ -15,6 +15,7 @@ bus_table = pd.read_html("https://www.ubus.com.tw/Booking/FareInquiry")
 # 統聯客運票價表
  
 bus_df = bus_table[0]
+# 讀取第1個表格
 bus_df.columns = ["路線名稱", "優惠時段", "原價時段", "半票票價", "軍優票價", "去回票價"]
 print(bus_df)
 # 以 DataFrame 的格式列印出爬取結果
@@ -85,4 +86,8 @@ print(bus_df, file=open('data.txt','w'))
 57        【1650】高雄－北港  220元  220元  110元    -元      -元
 58        【1651】高雄－北港  220元  220元  110元    -元      -元
 59       【1651】高雄－北港路  175元  175元   90元    -元      -元
+```
+
+```
+
 ```
