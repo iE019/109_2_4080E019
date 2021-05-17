@@ -10,7 +10,7 @@ pandas 套件，是一種常用的資料分析處理工具
 類似 Excel，能夠將儲存的 Data 進行統計、搜尋或修改等操作  
 主要有兩種 data structure，分別是 Series 及 DataFrame   
 
-Pandas Series 適用於處理單維度或單一 column(直欄)的 Data  
+Pandas Series 適用於處理 單維度 or 單一 column(直欄)的 Data  
 
 ## 實作1_基本認識 Series
 ```python
@@ -267,14 +267,15 @@ Num.4      htc
 dtype: object
 ```
 
-## 實作9-1 _搜尋是否包含特定字串(固定版)
+## 實作9-1 _搜尋是否包含 自己預設 的特定 String
 ```python
 import pandas as pd
  
 smartphone1 = pd.Series(["ASUS", "Apple", "Sony", "HTC"], 
             index=["Num.1", "Num.2", "Num.3", "Num.4"])
-            
-print(smartphone1.str.contains("Ap"))  # 搜尋是否包含特定字串
+
+print(smartphone1.str.contains("Ap"))  
+# 搜尋是否包含 自己預設 的特定 String
 # 左側 is Data index(索引值)
 # 右側 is Data boolean values(True or False)
 # Data type is bool(布林[邏輯資料型別])
@@ -290,13 +291,142 @@ Num.4    False
 dtype: bool
 ```
 
-## 實作9-2 _搜尋是否包含特定字串(使用者輸入版)
+## 實作9-2 _搜尋是否包含 User input 的特定 String
 ```python
+import pandas as pd
+ 
+smartphone1 = pd.Series(["ASUS", "Apple", "Sony", "HTC"], 
+            index=["Num.1", "Num.2", "Num.3", "Num.4"])
 
+User_input = input("請輸入關鍵字:")
+
+print(smartphone1.str.contains(User_input))  
+# 搜尋是否包含 User input 的特定 String
+# 左側 is Data index(索引值)
+# 右側 is Data boolean values(True or False)
+# Data type is bool(布林[邏輯資料型別])
 ```
 
 
 ## 執行結果
 ```
+請輸入關鍵字:AS
+Num.1     True
+Num.2    False
+Num.3    False
+Num.4    False
+dtype: bool
+```
 
+## 實作10_運用 cat(sep="、") method_自訂用來 連接 Data 中的每個項目的符號
+```python
+import pandas as pd
+ 
+smartphone1 = pd.Series(["ASUS", "Apple", "Sony", "HTC"], 
+            index=["Num.1", "Num.2", "Num.3", "Num.4"])
+
+print(smartphone1.str.cat(sep="、"))  
+# 運用自訂的 頓號 連接 Data 中的每個項目
+```
+
+## 執行結果
+```
+ASUS、Apple、Sony、HTC
+```
+
+
+## 實作11_運用 replace method 取代為 指定的 Data
+```python
+import pandas as pd
+ 
+smartphone1 = pd.Series(["ASUS", "Apple", "Sony", "HTC"], 
+            index=["Num.1", "Num.2", "Num.3", "Num.4"])
+
+print(smartphone1.str.replace("Sony", "OPPO"))  
+# 將 Sony 取代為 OPPO
+```
+
+## 執行結果
+```
+Num.1     ASUS
+Num.2    Apple
+Num.3     OPPO
+Num.4      HTC
+dtype: object
+```
+
+
+## 實作12_數值運算
+```python
+import pandas as pd
+ 
+numbers = pd.Series([10, 25, 35, 5, 77, 55])
+
+print("最大值:")
+print(numbers.max())  
+# 運用 m() method 列印出物件 numbers Data 中的最大值
+
+print("------------------------")
+
+print("最小值:")
+print(numbers.min())
+# 運用 min() method 列印出物件 numbers Data 中的最小值
+
+print("------------------------")
+
+print("總和=")
+print(numbers.sum())
+# 運用 sum() method 列印出物件 numbers Data 的總和
+
+print("------------------------")
+
+print("平均值=")
+print(numbers.mean()) 
+# 運用 mean() method 列印出物件 numbers Data 的平均值
+
+print("------------------------")
+
+print("物件 numbers Data 中最大的2個數值:")
+print(numbers.nlargest(2))  
+# nlargest 讀法是 n  largest : 找出 n 個最大值
+# 列印出物件 numbers Data 中最大的2個數值
+# 左側 is index
+# 右側 is value
+# Data type:int(整數)
+
+print("------------------------")
+
+print("物件 numbers Data 中最小的3個數值:")
+print(numbers.nsmallest(3))  
+# nlargest 讀法是 n smallest: 找出 n 個最小值
+# 列印出物件 numbers Data 中最小的3個數值
+# 左側 is index
+# 右側 is value
+# Data type:int(整數)
+```
+
+## 執行結果
+```
+最大值:
+77
+------------------------
+最小值:
+5
+------------------------
+總和=
+207
+------------------------
+平均值=
+34.5
+------------------------
+物件 numbers Data 中最大的2個數值:
+4    77
+5    55
+dtype: int64
+------------------------
+物件 numbers Data 中最小的3個數值:
+3     5
+0    10
+1    25
+dtype: int64
 ```
