@@ -381,7 +381,7 @@ print(new_df)
 4  Henry    60      NaN       62
 ```
 
-## 實作7_合併 df 來新增 Data
+## 實作7_運用 concat() method 合併 df 來新增 Data
 ```python
 import pandas as pd
  
@@ -611,15 +611,161 @@ print(new_df)
 3   John   Taichung    86       86
 ```
 
-## 實作12
+## 實作12_篩選 Data
 ```python
+import pandas as pd
+ 
+grades = {
+    "name": ["Peter", "Mary", "Mark", "John"],
+    "math": [50, 75, 65, 86],
+    "chinese": [50, 75, 65, 86]
+}
+# 建立 a Dictionaries(字典) 並命名為 grades
+# key:["value1","value2"...]
+# key is column Name
+# value is column Data 
 
+df = pd.DataFrame(grades)
+# 將 Dictionaries grades Data 指定給物件 df
+ 
+print("原來的df")
+print(df)
+ 
+print("------------------------------------")
+
+print("篩選 math 大於70的資料集")
+print(df[df["math"] > 70])
+
+print("------------------------------------")
+print("篩選name欄位包含John的資料集")
+print(df[df["name"].isin(["John"])])
 ```
 
 ## 執行結果
 ```
+原來的df
+    name  math  chinese
+0  Peter    50       50
+1   Mary    75       75
+2   Mark    65       65
+3   John    86       86
+------------------------------------
+篩選 math 大於70的資料集
+   name  math  chinese
+1  Mary    75       75
+3  John    86       86
+```
+------------------------------------
+篩選name欄位包含John的資料集
+   name  math  chinese
+3  John    86       86
 
+
+
+## 實作13_運用 sort_index() method 排序 Data (依照 index 來進行排序)
+```python
+import pandas as pd
+ 
+ 
+grades = {
+    "name": ["Peter", "Mary", "Mark", "John"],
+    "math": [80, 75, 93, 86],
+    "chinese": [63, 90, 85, 70]
+}
+ 
+df = pd.DataFrame(grades)
+df.index = ["s3", "s1", "s4", "s2"]  # 自訂資料索引值
+ 
+print("原來的df")
+print(df)
+ 
+print("------------------------------------")
+ 
+new_df = df.sort_index(ascending=True)
+print("遞增排序")
+print(new_df)
+ 
+print("------------------------------------")
+ 
+new_df = df.sort_index(ascending=False)
+print("遞減排序")
+print(new_df)
+```
+
+## 執行結果
+```
+原來的df
+     name  math  chinese
+s3  Peter    80       63
+s1   Mary    75       90
+s4   Mark    93       85
+s2   John    86       70
+------------------------------------
+遞增排序
+     name  math  chinese
+s1   Mary    75       90
+s2   John    86       70
+s3  Peter    80       63
+s4   Mark    93       85
+------------------------------------
+遞減排序
+     name  math  chinese
+s4   Mark    93       85
+s3  Peter    80       63
+s2   John    86       70
+s1   Mary    75       90
 ```
 
 
+## 實作14_運用 sort_values() method 排序 Data (依照 column Data 來進行排序)
+```python
+import pandas as pd
+ 
+ 
+grades = {
+    "name": ["Mike", "Sherry", "Cindy", "John"],
+    "math": [80, 75, 93, 86],
+    "chinese": [63, 90, 85, 70]
+}
+ 
+df = pd.DataFrame(grades)
+ 
+print("原來的df")
+print(df)
+ 
+print("------------------------------------")
+ 
+new_df = df.sort_values(["math"], ascending=True)
+print("遞增排序")
+print(new_df)
+ 
+print("------------------------------------")
+ 
+new_df = df.sort_values(["math"], ascending=False)
+print("遞減排序")
+print(new_df)
+```
 
+## 執行結果
+```
+原來的df
+     name  math  chinese
+0    Mike    80       63
+1  Sherry    75       90
+2   Cindy    93       85
+3    John    86       70
+------------------------------------
+遞增排序
+     name  math  chinese
+1  Sherry    75       90
+0    Mike    80       63
+3    John    86       70
+2   Cindy    93       85
+------------------------------------
+遞減排序
+     name  math  chinese
+2   Cindy    93       85
+3    John    86       70
+0    Mike    80       63
+1  Sherry    75       90
+```
