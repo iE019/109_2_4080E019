@@ -787,3 +787,24 @@ df.to_csv('data.csv',encoding ='utf-8-sig')
 ![寫檔_儲存成csv檔_執行結果1](寫檔_儲存成csv檔_執行結果1.JPG)
 
 ![寫檔_儲存成csv檔_執行結果2](寫檔_儲存成csv檔_執行結果2.JPG)
+
+
+## 實作16_讀檔
+```python
+import pandas as pd
+
+df = pd.read_csv('./data.csv')
+# 運用 read_csv() method 讀取csv檔
+
+df.head(5)
+# 顯示前5筆 Data
+```
+
+## 執行結果
+```
+	Unnamed: 0	name	math	chinese
+0	        0	Peter	80	      63
+1	        1	Mary	 75	      90
+2	        2	Mark	 93	      85
+3	        3	John	 86	      70
+```
