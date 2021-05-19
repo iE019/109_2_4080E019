@@ -803,8 +803,8 @@ df.head(5)
 ## 執行結果
 ```
 	Unnamed: 0	name	math	chinese
-0	        0	Peter	80	      63
-1	        1	Mary	 75	      90
-2	        2	Mark	 93	      85
-3	        3	John	 86	      70
+	0	0	Peter	80	63
+	1	1	Mary	75	90
+	2	2	Mark	93	85
+	3	3	John	86	70
 ```
