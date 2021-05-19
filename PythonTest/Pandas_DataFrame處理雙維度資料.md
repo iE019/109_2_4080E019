@@ -652,13 +652,11 @@ print(df[df["name"].isin(["John"])])
    name  math  chinese
 1  Mary    75       75
 3  John    86       86
-```
 ------------------------------------
 篩選name欄位包含John的資料集
    name  math  chinese
 3  John    86       86
-
-
+```
 
 ## 實作13_運用 sort_index() method 排序 Data (依照 index 來進行排序)
 ```python
