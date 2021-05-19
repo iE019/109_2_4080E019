@@ -14,6 +14,18 @@ pip install email_validator
 
 pip install flask-sqlalchemy
 ```
+## 此次的變化
+```
+app.py 改名成 run.py
+
+
+```
+
+## 終端機操作
+```
+
+```
+
 ## 執行
 ```
 python run.py
