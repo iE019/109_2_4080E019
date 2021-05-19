@@ -1,11 +1,9 @@
 # Pandas_DataFrame 處理雙維度資料
 
-實作日期 2021/05/16 ~ 2021/5/17
+實作日期 2021/05/13、2021/05/16、2021/5/17、2021/05/19
 
 參考資料:[Pandas教學]資料分析必懂的Pandas DataFrame處理雙維度資料方法
 <https://www.learncodewithmike.com/2020/11/python-pandas-dataframe-tutorial.html>
-
-目前進度: 第7大點
 
 Google Colab 內建已有 pandas 套件所以不用 pip install (安裝)
 pandas 套件，是一種常用的資料分析處理工具
@@ -316,7 +314,7 @@ print(df.iloc[[1, 3], [0, 2]])
 3  John       70
 ```
 
-## 實作6_運用 insert()  新增 Data
+## 實作6_運用 insert()  新增 column Data  And  運用 append() method 新增新的一筆(橫列) Data
 ```python
 import pandas as pd
  
@@ -723,7 +721,7 @@ import pandas as pd
  
  
 grades = {
-    "name": ["Mike", "Sherry", "Cindy", "John"],
+    "name": ["Peter", "Mary", "Mark", "John"],
     "math": [80, 75, 93, 86],
     "chinese": [63, 90, 85, 70]
 }
@@ -749,23 +747,41 @@ print(new_df)
 ## 執行結果
 ```
 原來的df
-     name  math  chinese
-0    Mike    80       63
-1  Sherry    75       90
-2   Cindy    93       85
-3    John    86       70
+    name  math  chinese
+0  Peter    80       63
+1   Mary    75       90
+2   Mark    93       85
+3   John    86       70
 ------------------------------------
 遞增排序
-     name  math  chinese
-1  Sherry    75       90
-0    Mike    80       63
-3    John    86       70
-2   Cindy    93       85
+    name  math  chinese
+1   Mary    75       90
+0  Peter    80       63
+3   John    86       70
+2   Mark    93       85
 ------------------------------------
 遞減排序
-     name  math  chinese
-2   Cindy    93       85
-3    John    86       70
-0    Mike    80       63
-1  Sherry    75       90
+    name  math  chinese
+2   Mark    93       85
+3   John    86       70
+0  Peter    80       63
+1   Mary    75       90
 ```
+
+## 實作15_寫檔_儲存成csv檔
+```python
+import pandas as pd
+ 
+grades = {
+    "name": ["Peter", "Mary", "Mark", "John"],
+    "math": [80, 75, 93, 86],
+    "chinese": [63, 90, 85, 70]
+}
+ 
+df = pd.DataFrame(grades)
+
+df.to_csv('data.csv',encoding ='utf-8-sig')
+# 寫檔,儲存成csv檔
+```
+
+## 執行結果
