@@ -18,11 +18,21 @@ pip install flask-sqlalchemy
 ```
 app.py 改名成 run.py
 
+在 flaskTest01資料夾內，新建 1個 flaskblog 資料夾
+將 除了 run.py、__pycache__ 都存入 flaskblog 資料夾裡
+
+原本的 __pycache__ 刪除
+
+__pycache__ 之後會自動建檔在 flaskblog 資料夾裡
 
 ```
 
-## 終端機操作
+## 終端機裡的操作
 ```
+顯示架構:
+tree
+
+
 
 ```
 
