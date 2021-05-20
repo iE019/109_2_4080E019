@@ -476,9 +476,4 @@ df.to_csv('data.csv',encoding ='utf-8-sig')
 ```
 
 ```
-```
 
-## 執行結果
-```
-
-```
