@@ -377,7 +377,8 @@ bus_df = bus_table[0]
 bus_df.columns = ["路線名稱", "優惠時段", "原價時段", "半票票價", "軍優票價", "去回票價"]
 print(bus_df)
 # 以 DataFrame 的格式列印出爬取結果
-df.to_csv('data.csv',encoding ='utf-8-sig')
+
+bus_df.to_csv('data.csv',encoding ='utf-8-sig')
 # 寫檔,儲存成csv檔
 ```
 
